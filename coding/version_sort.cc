@@ -24,6 +24,21 @@
         2.3.1
         10.5.5
         11.3.0
+
+        "1.0.0",
+        "1.0.0-beta.11",
+        "1.0.0-alpha",
+        "1.0.0-beta.2",
+        "0.1.0",
+        "1.2.0",
+        "1.0.0-alpha.1",
+        "1.0.0-rc.1",
+        "1.1.0",
+        "1.0.0-alpha.beta",
+        "1.0.0-beta",
+        "1.1.0-beta.2",
+        "1.0.0-beta.10",
+        "1.1.0-beta"
 */
 
 #include <string>
@@ -115,10 +130,9 @@ bool compare_enhance(std::string const& str1, std::string const& str2)
         return compare(str1, str2);
     } else {
         /* this piece code used as example for better understanding the logic
-           because in comparesub() line 62-65 can do samething for only one has -
-           so I replace with below line 151-156
+           because in comparesub() line 62-64 can do samething for only one has -
         */
-        /*
+        /***
         // only one of the input have -
         if((has_sub1 && !has_sub2) || (!has_sub1 && has_sub2)) {
             if(pre1 == pre2) return sub1.length() > sub2.length();
@@ -130,7 +144,7 @@ bool compare_enhance(std::string const& str1, std::string const& str2)
             else return true;
         } else 
             return false;
-        */
+        ***/
         if(pre1 == pre2) {
             // compare(pre1, pre2) will return true
             return comparesub(sub1, sub2);
