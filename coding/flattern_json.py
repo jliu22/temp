@@ -33,6 +33,7 @@ def flatten(d, parent_key='', sep='_'):
     return dict(items)
 
 
+# return a list keep the order of key appearance
 def flatten2(d, parent_key='', sep='_'):
 
     items = []
@@ -50,14 +51,15 @@ def flatten2(d, parent_key='', sep='_'):
 	else:
             items.append((new_key, v))
 
-    return collections.OrderedDict(items)
+    return collections.OrderedDict(items).items()
 
 if __name__== "__main__":
     d = {'a': 1, 'c': {'a': 2, 'b': {'x': 5, 'y' : 10}}, 'd': [1, 2, 3]}
     print d
     print flatten(d)
+    print ''
 
     d = {'a': 1, 'c': {'a': 2, 'b': {'x': 5, 'y' : 10}}, 'd': [{'e' : [1, 2, 3]}, {'f' : 2}, {'g' : 3}]}
     print d
     print flatten(d)
-    print dict(flatten2(d).items())
+    print flatten2(d)
