@@ -129,22 +129,6 @@ bool compare_enhance(std::string const& str1, std::string const& str2)
     if(!has_sub1 && !has_sub2) {
         return compare(str1, str2);
     } else {
-        /* this piece code used as example for better understanding the logic
-           because in comparesub() line 62-64 can do samething for only one has -
-        */
-        /***
-        // only one of the input have -
-        if((has_sub1 && !has_sub2) || (!has_sub1 && has_sub2)) {
-            if(pre1 == pre2) return sub1.length() > sub2.length();
-            else return compare(pre1, pre2);
-        }
-        // both have -
-        if(compare(pre1, pre2)) {
-            if(pre1 == pre2) return comparesub(sub1, sub2);
-            else return true;
-        } else 
-            return false;
-        ***/
         if(pre1 == pre2) {
             // compare(pre1, pre2) will return true
             return comparesub(sub1, sub2);
