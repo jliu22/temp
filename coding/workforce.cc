@@ -45,9 +45,12 @@ vector<worker> getWorkforce(vector<pair<int, int>> record)
     vector<pair<int, int>> yearsum;
 
     while(mmap.size()) {
-        sum += mmap.begin()->second;
-        yearsum.push_back(make_pair(mmap.begin()->first, sum));
-        mmap.erase(mmap.begin());
+        int year = mmap.begin()->first;
+        while(year ==  mmap.begin()->first) {
+            sum += mmap.begin()->second;
+            mmap.erase(mmap.begin());
+        }
+        yearsum.push_back(make_pair(year, sum));
     }
     // convert to ret
     worker w;
@@ -76,7 +79,7 @@ int main()
     print(w);
 
     // use example in description
-    vector<pair<int, int>> record2 = {{2001,2005},{2003,2007},{2006,2008}};
+    vector<pair<int, int>> record2 = {{2001,2005},{2003, 2007},{2003,2007},{2006,2008}};
     w = getWorkforce(record2);
     print(w);
 
@@ -93,20 +96,26 @@ $ ./workforce
 
 Test result:
 $ ./workforce 
-[2, 3] 1
-[3, 5] 2
-[5, 7] 3
-[7, 9] 2
-[9, 12] 1
-[12, 15] 0
-[15, 19] 1
-[19, 20] 2
-[20, 24] 1
-
 [2001, 2003] 1
 [2003, 2005] 2
 [2005, 2006] 1
 [2006, 2007] 2
+[2007, 2008] 1
+
+[3, 5] 1
+[5, 7] 2
+[7, 9] 3
+[9, 12] 2
+[12, 15] 1
+[15, 19] 0
+[19, 20] 1
+[20, 24] 2
+[24, 32766] 1
+
+[2001, 2003] 1
+[2003, 2005] 3
+[2005, 2006] 2
+[2006, 2007] 3
 [2007, 2008] 1
 
 */
