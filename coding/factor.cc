@@ -1,3 +1,8 @@
+/**
+find factorization of a number
+for example: 6 has factorization 1*6, 2*3, these 6*1, 3*2 considered as duplicate
+**/
+
 #include <iostream>
 #include <set>
 #include <vector>
